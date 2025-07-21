@@ -1,99 +1,96 @@
-Лесоруб для Garry's Mod (Helix)
-Система Лесоруба для Garry's Mod на Helix Framework, позволяющая игрокам рубить деревья, наблюдать их рост, а также взаимодействовать с деревьями через несколько стадий.
+Lumberjack for Garry's Mod (Helix)
+A Lumberjack system for Garry's Mod based on the Helix Framework, allowing players to cut down trees, observe their growth, and interact with trees through several stages.
 
-🚀 Описание
-Этот плагин добавляет систему деревьев с прогрессивным ростом в Garry's Mod с использованием Helix Framework. Игроки могут рубить деревья, наблюдать их рост через различные стадии, и использовать топор для получения ресурсов.
+🚀 Description
+This plugin adds a progressive growth tree system to Garry's Mod using the Helix Framework. Players can chop down trees, observe their growth through various stages, and use an axe to obtain resources.
 
-🏞️ Основные особенности:
-Деревья с прогрессивным ростом: Дерево проходит несколько стадий:
+Main features:
+Trees with progressive growth: The tree goes through several stages:
 
-Пень (после сруба).
+The stump (after the log house).
 
-Маленькое дерево (через 60 секунд).
+A small tree (after 60 seconds).
 
-Среднее дерево (через 30 секунд).
+The middle tree (after 30 seconds).
 
-Большое дерево (через 30 секунд, с которым можно взаимодействовать).
+A large tree (after 30 seconds, which you can interact with).
 
-Рубка деревьев: Игрок должен удерживать клавишу E в течение 7 секунд для того, чтобы срубить дерево. После этого появляется пень.
+Felling trees: The player must hold down the E key for 7 seconds in order to cut down a tree. After that, a tree stump appears.
 
-Возрождение деревьев: После сруба дерева оно проходит циклическое восстановление:
+Tree regeneration: After a tree is cut down, it undergoes cyclical restoration:
 
-Пень → Маленькое дерево → Среднее дерево → Большое дерево.
+Stump → Small tree → Medium tree → Large tree.
 
-Дерево восстанавливается на том же месте, где было срублено, через определённое время (60 секунд для маленького, 30 секунд для среднего и большого).
+The tree is restored in the same place where it was cut down after a certain time (60 seconds for small, 30 seconds for medium and large).
 
-Сохранение данных: Все данные деревьев, включая их позицию и стадию, сохраняются между перезапусками сервера, что позволяет деревьям восстанавливаться после рестарта.
+Data retention: All tree data, including their position and stage, is saved between server restarts, allowing trees to recover after a restart.
 
-Удаление деревьев: Дерево можно удалить только через тулган или через стандартные средства удаления в Q-меню.
+Deleting trees: A tree can be deleted only through a tool gun or through standard removal tools in the Q-menu.
 
-📦 Установка
-Скачай или клонируй репозиторий в папку garrysmod/addons.
+📦 Installation
+Download or clone the repository to the garrysmod/addons folder.
 
-Перезапусти сервер для загрузки плагина.
+Restart the server to download the plugin.
 
-В Q-меню перейди в Entities → Лесоруб → Дерево и заспавни дерево.
+In the Q-menu, go to Entities → Lumberjack → Tree and start the tree.
 
-Для того, чтобы срубить дерево, получи топор командой /giveme axe.
+In order to cut down a tree, get an axe with the command /giveme axe.
 
-Подойди к дереву и удерживай E для его рубки.
+Go to the tree and hold E to cut it down.
 
-🔧 Настройка
-Модели деревьев
-Все модели для разных стадий дерева можно настроить в ix_tree.lua:
+🔧 Customize
+Tree models
+All models for different stages of the tree can be configured in ix_tree.lua.:
 
-lua
-Копировать
-Редактировать
 local treeModels = {
-    [0] = "models/props_forest/tree_pine_stump02.mdl",  -- Пень
-    [1] = "models/props/foliage/tree_deciduous_01a-lod.mdl",  -- Маленькое дерево
-    [2] = "models/props/foliage/tree_dead03.mdl",  -- Среднее дерево
-    [3] = "models/props/foliage/tree_dead01.mdl",  -- Большое дерево
+    [0] = "models/props_forest/tree_pine_stump02.mdl", -- Stump
+    [1] = "models/props/folder/tree_deciduous_01a-lod.mdl", -- Small tree
+    [2] = "models/props/folder/tree_dead03.mdl", -- Middle tree
+    [3] = "models/props/folder/tree_dead01.mdl", -- Large tree
 }
-Ты можешь заменить эти модели на любые другие, если хочешь использовать свои.
+You can replace these models with any other ones if you want to use your own.
 
-Время роста
-Каждое дерево проходит через следующие стадии:
+Time of growth
+Each tree goes through the following stages:
 
-Пень → Маленькое дерево — через 60 секунд.
+Stump → Small tree — after 60 seconds.
 
-Маленькое дерево → Среднее дерево — через 30 секунд.
+Small tree → The average tree is in 30 seconds.
 
-Среднее дерево → Большое дерево — через 30 секунд.
+Medium tree → Large tree — in 30 seconds.
 
-Эти временные интервалы можно изменять, подгоняя под свои нужды.
+These time intervals can be changed to suit your needs.
 
-🧩 Дополнительные функции
-Ты можешь легко добавить новые функции или улучшения:
+, Additional functions
+You can easily add new features or improvements.:
 
-Износ топора: Добавь систему износа для топора, чтобы он ломался после нескольких рубок.
+Axe Wear: Add a wear system for the axe so that it breaks after several cuts.
 
-Анимации: Добавь анимации для игрока при рубке дерева.
+Animations: Add animations for the player when chopping down a tree.
 
-Эффекты: Реализуй эффекты при срубе, такие как пыль или звуковые эффекты.
+Effects: Realize the effects when cutting down, such as dust or sound effects.
 
-Удобрение: Добавь систему для ускоренного роста деревьев с использованием удобрений.
+Fertilizer: Add a system for accelerated tree growth using fertilizers.
 
-⚙️ Системные требования
+, System requirements
 Garry's Mod (v. 13+)
 
 Helix Framework (v. 1.0+)
 
-Lua 5.1 (входит в Garry's Mod)
+Lua 5.1 (included in Garry's Mod)
 
-📄 Файлы плагина
-ix_tree.lua — основной файл плагина, который описывает логику роста и рубки деревьев.
 
-sh_plugin.lua — подключает клиентскую и серверную часть плагина, а также отвечает за сохранение и загрузку данных деревьев.
+ix_tree.lua plugin files are the main plugin file that describes the logic of tree growth and felling.
 
-cl_plugin.lua — рисует кастомный прогресс-бар для рубки дерева.
+sh_plugin.lua — connects the client and server parts of the plugin, and is also responsible for saving and loading tree data.
 
-sv_plugin.lua — сохраняет данные деревьев (позиция, стадия) между перезапусками сервера.
+cl_plugin.lua — draws a custom progress bar for chopping wood.
 
-🚧 Важные замечания
-Дерево можно удалить только вручную (тулганом или через Q-меню), чтобы предотвратить случайное удаление.
+sv_plugin.lua — saves tree data (position, stage) between server restarts.
 
-Рубка дерева требует топора. Если игрок не имеет топора, рубка будет невозможна.
+, Important remarks
+The tree can only be deleted manually (with a tool bar or via the Q-menu) to prevent accidental deletion.
 
-Если дерево не рубится, убедись, что оно находится на последней стадии (большое дерево).
+Chopping wood requires an axe. If the player does not have an axe, chopping will be impossible.
+
+If the tree is not being cut, make sure that it is in the last stage (a large tree).
